@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time</title>
+  </head>
+
+  <body>
+    <canvas id="seconds-line" width="200px" height="20px"></canvas>
+  </body>
+
+  <script type="text/javascript">
+    var canvas = document.getElementById('seconds-line');
+    var ctx = canvas.getContext('2d');
+
+    /** Draw seconds line. */
+    function drawSecondsLine() {
+      let date = new Date();
+      let currentSecond = date.getSeconds();
+      let delta = Math.round(date.getMilliseconds() / 50);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < 11; i++) {
+        let x = 20 * i - delta;
+        let second = currentSecond + i;
+        if (second > 59) {
+          second -= 60;
+        }
+        if (second < 10) {
+          second = `0${second}`;
+        }
+        ctx.fillText(second, x + 5, 15);
+      }
+    }
+
+    setInterval(() => {
+      drawSecondsLine();
+    }, 50);
+  </script>
+</html>
