@@ -9,43 +9,6 @@
     <canvas id="seconds-line" width="200px" height="20px"></canvas>
   </body>
 
-  <script type="text/javascript">
-    /** Seconds line draw class. */
-    class SecondsDrawer {
-
-      /** Create. */
-      constructor() {
-        this._canvas = document.getElementById('seconds-line');
-        this._ctx = this._canvas.getContext('2d');
-      }
-
-      /**
-       * Draw seconds line.
-       * @param {Date} date - Date instance.
-       */
-      draw(date) {
-        let currentSecond = date.getSeconds();
-        let delta = Math.round(date.getMilliseconds() / 50);
-        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
-        for (let i = 0; i < 11; i++) {
-          let x = 20 * i - delta;
-          let second = currentSecond + i;
-          if (second > 59) {
-            second -= 60;
-          }
-          if (second < 10) {
-            second = `0${second}`;
-          }
-          this._ctx.fillText(second, x + 5, 15);
-        }
-      }
-    }
-
-    var seconds = new SecondsDrawer;
-
-    setInterval(() => {
-      let date = new Date();
-      seconds.draw(date);
-    }, 50);
-  </script>
+  <script type="text/javascript" src="src/js/drawers.js"></script>
+  <script type="text/javascript" src="src/js/main.js"></script>
 </html>
