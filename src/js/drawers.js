@@ -66,7 +66,7 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
   /**
    * Create.
    * @param {string} canvasId - Canvas id.
-   * @param {integer} maxValue - Maximal value.
+   * @param {integer|null} maxValue - Maximal value.
    */
   constructor(canvasId, maxValue) {
     super(canvasId);
@@ -81,10 +81,41 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
    */
   _getValue(currentValue, index) {
     let value = currentValue + index;
-    if (value > this._maxValue - 1) {
+    if (this._maxValue && value > this._maxValue - 1) {
       value -= this._maxValue;
     }
     return value;
+  }
+}
+
+
+/** Years line draw class. */
+class YearsDrawer extends BaseSolidNumbersDrawer {
+
+  /**
+   * Create.
+   * @param {string} canvasId - Canvas id.
+   */
+  constructor(canvasId) {
+    super(canvasId, null);
+  }
+
+  /**
+   * Get current year value.
+   * @param {Date} date - Date instance.
+   * @return {integer} Year value.
+   */
+  _getCurrentValue(date) {
+    return date.getYear() % 100;
+  }
+
+  /**
+   * Get year delta value.
+   * @param {Date} date - Date instance.
+   * @return {integer} Delta value.
+   */
+  _getDeltaValue(date) {
+    return Math.round((date.getMonth() * 30 + date.getDate()) / 18);
   }
 }
 
