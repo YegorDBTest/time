@@ -4,10 +4,12 @@ class BaseDrawer {
   /**
    * Create.
    * @param {string} canvasId - Canvas id.
+   * @param {integer} maxValue - Maximal value.
    */
-  constructor(canvasId) {
+  constructor(canvasId, maxValue) {
     this._canvas = document.getElementById(canvasId);
     this._ctx = this._canvas.getContext('2d');
+    this._maxValue = maxValue;
   }
 
   /** Clear canvas. */
@@ -42,8 +44,8 @@ class BaseDrawer {
     for (let i = 0; i < 11; i++) {
       let x = 20 * i - delta;
       let value = currentValue + i;
-      if (value > 59) {
-        value -= 60;
+      if (value > this._maxValue - 1) {
+        value -= this._maxValue;
       }
       if (value < 10) {
         value = `0${value}`;
@@ -54,8 +56,47 @@ class BaseDrawer {
 }
 
 
+/** Hours line draw class. */
+class HoursDrawer extends BaseDrawer {
+
+  /**
+   * Create.
+   * @param {string} canvasId - Canvas id.
+   */
+  constructor(canvasId) {
+    super(canvasId, 24);
+  }
+
+  /**
+   * Get current hour value.
+   * @param {Date} date - Date instance.
+   * @return {integer} Hour value.
+   */
+  _getCurrentValue(date) {
+    return date.getHours();
+  }
+
+  /**
+   * Get hour delta value.
+   * @param {Date} date - Date instance.
+   * @return {integer} Delta value.
+   */
+  _getDeltaValue(date) {
+    return Math.round(date.getMinutes() / 3);
+  }
+}
+
+
 /** Minutes line draw class. */
 class MinutesDrawer extends BaseDrawer {
+
+  /**
+   * Create.
+   * @param {string} canvasId - Canvas id.
+   */
+  constructor(canvasId) {
+    super(canvasId, 60);
+  }
 
   /**
    * Get current minute value.
@@ -79,6 +120,14 @@ class MinutesDrawer extends BaseDrawer {
 
 /** Seconds line draw class. */
 class SecondsDrawer extends BaseDrawer {
+
+  /**
+   * Create.
+   * @param {string} canvasId - Canvas id.
+   */
+  constructor(canvasId) {
+    super(canvasId, 60);
+  }
 
   /**
    * Get current second value.
