@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', (e) => {
+  let months = new MonthsDrawer('months-line');
   let days = new DaysDrawer('days-line');
   let hours = new HoursDrawer('hours-line');
   let minutes = new MinutesDrawer('minutes-line');
@@ -6,6 +7,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   setInterval(() => {
     let date = new Date();
+    months.draw(date);
     days.draw(date);
     hours.draw(date);
     minutes.draw(date);

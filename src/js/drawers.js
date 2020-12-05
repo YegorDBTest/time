@@ -77,7 +77,7 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
    * Get value.
    * @param {integer} currentValue - Current value.
    * @param {integer} index - Value index.
-   * @return {integer|string} Value.
+   * @return {integer} Value.
    */
   _getValue(currentValue, index) {
     let value = currentValue + index;
@@ -85,6 +85,47 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
       value -= this._maxValue;
     }
     return value;
+  }
+}
+
+
+/** Months line draw class. */
+class MonthsDrawer extends BaseSolidNumbersDrawer {
+
+  /**
+   * Create.
+   * @param {string} canvasId - Canvas id.
+   */
+  constructor(canvasId) {
+    super(canvasId, 12);
+  }
+
+  /**
+   * Get current month value.
+   * @param {Date} date - Date instance.
+   * @return {integer} Month value.
+   */
+  _getCurrentValue(date) {
+    return date.getMonth();
+  }
+
+  /**
+   * Get month delta value.
+   * @param {Date} date - Date instance.
+   * @return {integer} Delta value.
+   */
+  _getDeltaValue(date) {
+    return Math.round(date.getDate() / 1.5);
+  }
+
+  /**
+   * Get value.
+   * @param {integer} currentValue - Current value.
+   * @param {integer} index - Value index.
+   * @return {integer} Value.
+   */
+  _getValue(currentValue, index) {
+    return super._getValue(currentValue, index) + 1;
   }
 }
 
