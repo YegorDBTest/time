@@ -49,17 +49,17 @@ class BaseDrawer {
     let currentValue = this._getCurrentValue(date);
     let delta = this._getDeltaValue(date);
     for (let i = -2; i <= 2; i++) {
-      let x = 20 * (i + 2) - delta;
+      let y = 60 - 20 * (i + 2) + delta;
 
       this._ctx.fillStyle = '#ddd';
-      this._ctx.fillRect(x + 1, 1, 19, 19);
+      this._ctx.fillRect(1, y + 1, 19, 19);
 
       let value = this._getValue(currentValue, i);
       if (value < 10) {
         value = `0${value}`;
       }
       this._ctx.fillStyle = '#222';
-      this._ctx.fillText(value, x + 4, 15);
+      this._ctx.fillText(value, 5, y + 14);
     }
   }
 }

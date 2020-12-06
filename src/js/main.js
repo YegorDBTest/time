@@ -4,8 +4,8 @@ function drawNet() {
   let ctx = canvas.getContext('2d');
   ctx.strokeStyle = '#888';
   ctx.beginPath();
-  ctx.moveTo(40, 0);
-  ctx.lineTo(40, 140);
+  ctx.moveTo(0, 40);
+  ctx.lineTo(146, 40);
   ctx.stroke();
 }
 
