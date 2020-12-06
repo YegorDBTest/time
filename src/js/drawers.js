@@ -48,13 +48,18 @@ class BaseDrawer {
     this._clear();
     let currentValue = this._getCurrentValue(date);
     let delta = this._getDeltaValue(date);
-    for (let i = 0; i < 11; i++) {
-      let x = 20 * i - delta;
+    for (let i = -2; i <= 2; i++) {
+      let x = 20 * (i + 2) - delta;
+
+      this._ctx.fillStyle = '#ddd';
+      this._ctx.fillRect(x + 1, 1, 19, 19);
+
       let value = this._getValue(currentValue, i);
       if (value < 10) {
         value = `0${value}`;
       }
-      this._ctx.fillText(value, x + 5, 15);
+      this._ctx.fillStyle = '#222';
+      this._ctx.fillText(value, x + 4, 15);
     }
   }
 }
@@ -81,8 +86,12 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
    */
   _getValue(currentValue, index) {
     let value = currentValue + index;
-    if (this._maxValue && value > this._maxValue - 1) {
-      value -= this._maxValue;
+    if (this._maxValue) {
+      if (value > this._maxValue - 1) {
+        value -= this._maxValue;
+      } else if (value < 0) {
+        value += this._maxValue;
+      }
     }
     return value;
   }
