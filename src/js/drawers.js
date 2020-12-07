@@ -1,5 +1,6 @@
 /** Base draw logic. */
 class BaseDrawer {
+  static NEW_ITEM_EVENT = null;
 
   /**
    * Create.
@@ -8,6 +9,7 @@ class BaseDrawer {
   constructor(canvasId) {
     this._canvas = document.getElementById(canvasId);
     this._ctx = this._canvas.getContext('2d');
+    this._lastValue = null;
   }
 
   /** Clear canvas. */
@@ -47,6 +49,12 @@ class BaseDrawer {
   draw(date) {
     this._clear();
     let currentValue = this._getCurrentValue(date);
+    if (!this._lastValue || this._lastValue != currentValue) {
+      if (this.constructor.NEW_ITEM_EVENT) {
+        document.dispatchEvent(this.constructor.NEW_ITEM_EVENT);
+      }
+      this._lastValue = currentValue;
+    }
     let delta = this._getDeltaValue(date);
     for (let i = -2; i <= 2; i++) {
       let y = 60 - 20 * (i + 2) + delta;
@@ -67,6 +75,7 @@ class BaseDrawer {
 
 /** Base solid numbers draw logic. */
 class BaseSolidNumbersDrawer extends BaseDrawer {
+  static NEW_ITEM_EVENT = null;
 
   /**
    * Create.
@@ -100,6 +109,7 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
 
 /** Years line draw class. */
 class YearsDrawer extends BaseSolidNumbersDrawer {
+  static NEW_ITEM_EVENT = new Event('newYear');
 
   /**
    * Create.
@@ -107,6 +117,9 @@ class YearsDrawer extends BaseSolidNumbersDrawer {
    */
   constructor(canvasId) {
     super(canvasId, null);
+    document.addEventListener('newDay', (e) => {
+      this.draw(new Date);
+    });
   }
 
   /**
@@ -131,6 +144,7 @@ class YearsDrawer extends BaseSolidNumbersDrawer {
 
 /** Months line draw class. */
 class MonthsDrawer extends BaseSolidNumbersDrawer {
+  static NEW_ITEM_EVENT = new Event('newMonth');
 
   /**
    * Create.
@@ -138,6 +152,9 @@ class MonthsDrawer extends BaseSolidNumbersDrawer {
    */
   constructor(canvasId) {
     super(canvasId, 12);
+    document.addEventListener('newDay', (e) => {
+      this.draw(new Date);
+    });
   }
 
   /**
@@ -172,6 +189,7 @@ class MonthsDrawer extends BaseSolidNumbersDrawer {
 
 /** Days line draw class. */
 class DaysDrawer extends BaseDrawer {
+  static NEW_ITEM_EVENT = new Event('newDay');
 
   /**
    * Create.
@@ -179,6 +197,9 @@ class DaysDrawer extends BaseDrawer {
    */
   constructor(canvasId) {
     super(canvasId);
+    document.addEventListener('newHour', (e) => {
+      this.draw(new Date);
+    });
   }
 
   /**
@@ -212,6 +233,7 @@ class DaysDrawer extends BaseDrawer {
 
 /** Hours line draw class. */
 class HoursDrawer extends BaseSolidNumbersDrawer {
+  static NEW_ITEM_EVENT = new Event('newHour');
 
   /**
    * Create.
@@ -219,6 +241,9 @@ class HoursDrawer extends BaseSolidNumbersDrawer {
    */
   constructor(canvasId) {
     super(canvasId, 24);
+    document.addEventListener('newMinute', (e) => {
+      this.draw(new Date);
+    });
   }
 
   /**
@@ -243,6 +268,7 @@ class HoursDrawer extends BaseSolidNumbersDrawer {
 
 /** Minutes line draw class. */
 class MinutesDrawer extends BaseSolidNumbersDrawer {
+  static NEW_ITEM_EVENT = new Event('newMinute');
 
   /**
    * Create.
@@ -250,6 +276,9 @@ class MinutesDrawer extends BaseSolidNumbersDrawer {
    */
   constructor(canvasId) {
     super(canvasId, 60);
+    document.addEventListener('newSecond', (e) => {
+      this.draw(new Date);
+    });
   }
 
   /**
@@ -274,6 +303,7 @@ class MinutesDrawer extends BaseSolidNumbersDrawer {
 
 /** Seconds line draw class. */
 class SecondsDrawer extends BaseSolidNumbersDrawer {
+  static NEW_ITEM_EVENT = new Event('newSecond');
 
   /**
    * Create.
@@ -281,6 +311,10 @@ class SecondsDrawer extends BaseSolidNumbersDrawer {
    */
   constructor(canvasId) {
     super(canvasId, 60);
+    setInterval(() => {
+      let date = new Date();
+      this.draw(date);
+    }, 50);
   }
 
   /**

@@ -20,17 +20,11 @@ document.addEventListener('DOMContentLoaded', (e) => {
   let minutes = new MinutesDrawer('minutes-line');
   let seconds = new SecondsDrawer('seconds-line');
 
-  setInterval(() => {
-    let date = new Date();
-    years.draw(date);
-    months.draw(date);
-    days.draw(date);
-    hours.draw(date);
-    minutes.draw(date);
-  }, 1000);
-
-  setInterval(() => {
-    let date = new Date();
-    seconds.draw(date);
-  }, 50);
+  date = new Date();
+  years.draw(date);
+  months.draw(date);
+  days.draw(date);
+  hours.draw(date);
+  minutes.draw(date);
+  seconds.draw(date);
 });
