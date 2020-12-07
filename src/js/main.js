@@ -2,7 +2,7 @@
 function drawNet() {
   let canvas = document.getElementById('net');
   let ctx = canvas.getContext('2d');
-  ctx.strokeStyle = '#888';
+  ctx.strokeStyle = '#c7956d';
   ctx.beginPath();
   ctx.moveTo(0, 40);
   ctx.lineTo(146, 40);

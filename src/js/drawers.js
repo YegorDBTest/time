@@ -51,14 +51,14 @@ class BaseDrawer {
     for (let i = -2; i <= 2; i++) {
       let y = 60 - 20 * (i + 2) + delta;
 
-      this._ctx.fillStyle = '#ddd';
+      this._ctx.fillStyle = '#f2d974';
       this._ctx.fillRect(1, y + 1, 19, 19);
 
       let value = this._getValue(currentValue, i);
       if (value < 10) {
         value = `0${value}`;
       }
-      this._ctx.fillStyle = '#222';
+      this._ctx.fillStyle = '#534e52';
       this._ctx.fillText(value, 5, y + 14);
     }
   }
