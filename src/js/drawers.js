@@ -1,6 +1,18 @@
 /** Base draw logic. */
 class BaseDrawer {
   static NEW_ITEM_EVENT = null;
+  static NUMBERS = {
+    '0': Zero,
+    '1': One,
+    '2': Two,
+    '3': Three,
+    '4': Four,
+    '5': Five,
+    '6': Six,
+    '7': Seven,
+    '8': Eight,
+    '9': Nine,
+  };
 
   /**
    * Create.
@@ -10,6 +22,23 @@ class BaseDrawer {
     this._canvas = document.getElementById(canvasId);
     this._ctx = this._canvas.getContext('2d');
     this._lastValue = null;
+    this._scale = 1;
+  }
+
+  /**
+   * Canvas 2d context.
+   * @return {Object} 2d context.
+   */
+  get ctx() {
+    return this._ctx;
+  }
+
+  /**
+   * Draw scale.
+   * @return {integer} Scale.
+   */
+  get scale() {
+    return this._scale;
   }
 
   /** Clear canvas. */
@@ -60,14 +89,16 @@ class BaseDrawer {
       let y = 60 - 20 * (i + 2) + delta;
 
       this._ctx.fillStyle = '#f2d974';
-      this._ctx.fillRect(1, y + 1, 19, 19);
+      this._ctx.fillRect(1, y + 1, 18, 18);
 
       let value = this._getValue(currentValue, i);
       if (value < 10) {
         value = `0${value}`;
+      } else {
+        value = value.toString();
       }
-      this._ctx.fillStyle = '#534e52';
-      this._ctx.fillText(value, 5, y + 14);
+      new BaseDrawer.NUMBERS[value[0]](this, 0, y);
+      new BaseDrawer.NUMBERS[value[1]](this, 8, y);
     }
   }
 }
