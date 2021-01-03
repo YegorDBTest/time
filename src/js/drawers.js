@@ -16,12 +16,14 @@ class BaseDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    this._canvas = document.getElementById(canvasId);
-    this._canvas.setAttribute('width', `${20 * SCALE}px`);
-    this._canvas.setAttribute('height', `${80 * SCALE}px`);
+  constructor(timeline) {
+    this.tl = timeline;
+    this._canvas = document.createElement('canvas');
+    this._canvas.setAttribute('width', `${20 * this.tl.scale}px`);
+    this._canvas.setAttribute('height', `${80 * this.tl.scale}px`);
+    this.tl.wrapper.appendChild(this._canvas);
     this._ctx = this._canvas.getContext('2d');
     this._lastValue = null;
   }
@@ -81,8 +83,8 @@ class BaseDrawer {
     for (let i = -2; i <= 2; i++) {
       let y = 60 - 20 * (i + 2) + delta;
 
-      this._ctx.fillStyle = '#f2d974';
-      this._ctx.fillRect(1 * SCALE, (y + 1) * SCALE, 18 * SCALE, 18 * SCALE);
+      this._ctx.fillStyle = this.tl.colors.light;
+      this._ctx.fillRect(1 * this.tl.scale, (y + 1) * this.tl.scale, 18 * this.tl.scale, 18 * this.tl.scale);
 
       let value = this._getValue(currentValue, i);
       if (value < 10) {
@@ -90,8 +92,8 @@ class BaseDrawer {
       } else {
         value = value.toString();
       }
-      new BaseDrawer.NUMBERS[value[0]](this, 0, y);
-      new BaseDrawer.NUMBERS[value[1]](this, 8, y);
+      new this.constructor.NUMBERS[value[0]](this, 0, y);
+      new this.constructor.NUMBERS[value[1]](this, 8, y);
     }
   }
 }
@@ -103,11 +105,11 @@ class BaseSolidNumbersDrawer extends BaseDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    * @param {integer|null} maxValue - Maximal value.
    */
-  constructor(canvasId, maxValue) {
-    super(canvasId);
+  constructor(timeline, maxValue) {
+    super(timeline);
     this._maxValue = maxValue;
   }
 
@@ -137,10 +139,10 @@ class YearsDrawer extends BaseSolidNumbersDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    super(canvasId, null);
+  constructor(timeline) {
+    super(timeline, null);
     document.addEventListener('newDay', (e) => {
       this.draw(new Date);
     });
@@ -172,10 +174,10 @@ class MonthsDrawer extends BaseSolidNumbersDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    super(canvasId, 12);
+  constructor(timeline) {
+    super(timeline, 12);
     document.addEventListener('newDay', (e) => {
       this.draw(new Date);
     });
@@ -217,10 +219,10 @@ class DaysDrawer extends BaseDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    super(canvasId);
+  constructor(timeline) {
+    super(timeline);
     document.addEventListener('newHour', (e) => {
       this.draw(new Date);
     });
@@ -261,10 +263,10 @@ class HoursDrawer extends BaseSolidNumbersDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    super(canvasId, 24);
+  constructor(timeline) {
+    super(timeline, 24);
     document.addEventListener('newMinute', (e) => {
       this.draw(new Date);
     });
@@ -296,10 +298,10 @@ class MinutesDrawer extends BaseSolidNumbersDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    super(canvasId, 60);
+  constructor(timeline) {
+    super(timeline, 60);
     document.addEventListener('newSecond', (e) => {
       this.draw(new Date);
     });
@@ -331,10 +333,10 @@ class SecondsDrawer extends BaseSolidNumbersDrawer {
 
   /**
    * Create.
-   * @param {string} canvasId - Canvas id.
+   * @param {Object} timeline - Timeline object.
    */
-  constructor(canvasId) {
-    super(canvasId, 60);
+  constructor(timeline) {
+    super(timeline, 60);
     setInterval(() => {
       let date = new Date();
       this.draw(date);
