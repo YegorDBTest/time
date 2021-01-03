@@ -15,7 +15,7 @@ class BaseNumber {
   /** Draw number shape. */
   _draw() {
     this._drawer.ctx.fillStyle = '#534e52';
-    this._drawer.ctx.lineWidth = 2 * this._drawer.scale;
+    this._drawer.ctx.lineWidth = 2 * SCALE;
     this._drawShape();
   }
 
@@ -42,14 +42,14 @@ class Zero extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 9) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 9) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 7) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -70,12 +70,12 @@ class One extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 8) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 5) * this._drawer.scale, (this._dy + 8) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 6) * this._drawer.scale, (this._dy + 5) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 6) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 8) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 5) * SCALE, (this._dy + 8) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 6) * SCALE, (this._dy + 5) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 6) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 14) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -96,16 +96,16 @@ class Two extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 9) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 9) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 3) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 11) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 9) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 9) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 3) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 11) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 14) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -126,14 +126,14 @@ class Three extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 14) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -154,12 +154,12 @@ class Four extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 5) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 11) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 5) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 5) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 15) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 5) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 11) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 5) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 5) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 15) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -180,16 +180,16 @@ class Five extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 9) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 9) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 3) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 11) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 9) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 9) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 3) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 11) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 14) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -210,16 +210,16 @@ class Six extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 15) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 5) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 5) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 9) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 15) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 15) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 5) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 5) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 9) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 15) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -240,10 +240,10 @@ class Seven extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 15) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 15) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -264,16 +264,16 @@ class Eight extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 9) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 13) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 5) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 9) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 13) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 5) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 10) * SCALE);
     this._drawer.ctx.stroke();
   }
 }
@@ -294,16 +294,16 @@ class Nine extends BaseNumber {
    */
   _drawShape() {
     this._drawer.ctx.beginPath();
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 9) * this._drawer.scale, (this._dy + 6) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 8) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 8) * this._drawer.scale, (this._dy + 15) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 4) * this._drawer.scale, (this._dy + 7) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 4) * this._drawer.scale, (this._dy + 11) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 5) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 10) * this._drawer.scale);
-    this._drawer.ctx.moveTo((this._dx + 3) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
-    this._drawer.ctx.lineTo((this._dx + 7) * this._drawer.scale, (this._dy + 14) * this._drawer.scale);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 9) * SCALE, (this._dy + 6) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 8) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 8) * SCALE, (this._dy + 15) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 4) * SCALE, (this._dy + 7) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 4) * SCALE, (this._dy + 11) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 5) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 10) * SCALE);
+    this._drawer.ctx.moveTo((this._dx + 3) * SCALE, (this._dy + 14) * SCALE);
+    this._drawer.ctx.lineTo((this._dx + 7) * SCALE, (this._dy + 14) * SCALE);
     this._drawer.ctx.stroke();
   }
 }

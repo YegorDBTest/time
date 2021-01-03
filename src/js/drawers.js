@@ -20,9 +20,10 @@ class BaseDrawer {
    */
   constructor(canvasId) {
     this._canvas = document.getElementById(canvasId);
+    this._canvas.setAttribute('width', `${20 * SCALE}px`);
+    this._canvas.setAttribute('height', `${80 * SCALE}px`);
     this._ctx = this._canvas.getContext('2d');
     this._lastValue = null;
-    this._scale = 1;
   }
 
   /**
@@ -31,14 +32,6 @@ class BaseDrawer {
    */
   get ctx() {
     return this._ctx;
-  }
-
-  /**
-   * Draw scale.
-   * @return {integer} Scale.
-   */
-  get scale() {
-    return this._scale;
   }
 
   /** Clear canvas. */
@@ -89,7 +82,7 @@ class BaseDrawer {
       let y = 60 - 20 * (i + 2) + delta;
 
       this._ctx.fillStyle = '#f2d974';
-      this._ctx.fillRect(1, y + 1, 18, 18);
+      this._ctx.fillRect(1 * SCALE, (y + 1) * SCALE, 18 * SCALE, 18 * SCALE);
 
       let value = this._getValue(currentValue, i);
       if (value < 10) {
