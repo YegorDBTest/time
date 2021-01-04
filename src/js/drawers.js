@@ -358,6 +358,12 @@ class SecondsDrawer extends BaseSolidNumbersDrawer {
    * @return {integer} Delta value.
    */
   _getDeltaValue(date) {
-    return Math.round(date.getMilliseconds() / 50);
+    let state = Math.ceil(date.getMilliseconds() / 50);
+    if (state > 15) {
+      return 10 + (state - 15) * 2;
+    } else if (state < 6) {
+      return state * 2;
+    }
+    return 10;
   }
 }
